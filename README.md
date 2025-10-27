@@ -32,77 +32,69 @@ Este projeto foi desenvolvido como parte de um **desafio da DIO**, com o objetiv
 
 Usuário 🌎 → CloudFront 🌩️ → S3 🪣 → Site Estático (HTML/CSS)
 
-🚀 Passo a Passo da Implantação
-🪄 1. Criar a infraestrutura na AWS
+# 🚀 Passo a Passo da Implantação
 
-Acesse AWS CloudFormation → Create Stack
+## 🪄 1. Criar a infraestrutura na AWS
+1. Acesse **AWS CloudFormation → Create stack**  
+2. Escolha **With new resources (standard)**  
+3. Faça upload do arquivo **`template_final.yaml`**  
+4. Clique em **Next** e defina o nome da pilha (ex.: `site-estatico-stack`)  
+5. **Next → Next → Create stack**  
+6. Aguarde até o status **`CREATE_COMPLETE`**
 
-Escolha “With new resources (standard)”
+---
 
-Faça upload do arquivo template_final.yaml
+## 🧱 2. Fazer upload dos arquivos do site
+1. Vá para **Amazon S3 → Buckets**  
+2. Clique no bucket criado automaticamente (ex.: `site-estatico-stack-sitebucket-xxxxx`)  
+3. **Upload → Add files**  
+4. Envie os arquivos:
+   - `index.html`
+   - `error.html`
+5. Clique em **Upload**
 
-Clique em Next, defina o nome da pilha (ex.: site-estatico-stack)
+---
 
-Clique em Next → Next → Create stack
-
-Aguarde até o status CREATE_COMPLETE
-
-🧱 2. Fazer upload dos arquivos do site
-
-Vá para Amazon S3 → Buckets
-
-Clique no bucket criado automaticamente (site-estatico-stack-sitebucket-xxxxx)
-
-Clique em Upload → Add files
-
-Envie os arquivos:
-
-index.html
-
-error.html
-
-Clique em Upload
-
-🌐 3. Obter o link do site
-
-Acesse o CloudFormation → Stacks → site-estatico-stack
-
-Vá até a aba Saídas (Outputs)
-
-Copie o valor de SiteURL — algo como:
-
+## 🌐 3. Obter o link do site
+1. Acesse **CloudFormation → Stacks → `site-estatico-stack`**  
+2. Vá até a aba **Saídas (Outputs)**  
+3. Copie o valor de **`SiteURL`** — algo como:
 https://d1234abcdefg.cloudfront.net
 
+yaml
+Copiar código
+4. Abra o link no navegador ✅
 
-Abra o link no navegador ✅
+---
 
-💻 Resultado Final
-🎯 Página publicada com sucesso:
+## 💻 Resultado Final
+🎯 **Página publicada com sucesso!**  
+🌟 Projeto finalizado utilizando **AWS CloudFormation**, **Amazon S3** e **Amazon CloudFront**.
 
-🌟 Projeto finalizado com sucesso utilizando AWS CloudFormation, S3 e CloudFront.
+---
 
-🔒 Boas Práticas Adotadas
+## 🔒 Boas Práticas Adotadas
+- ✅ Uso de **Object Ownership = BucketOwnerEnforced**  
+- ✅ **Sem ACLs públicas** (compatível com o padrão atual da AWS)  
+- ✅ Política de acesso mínima necessária: **`s3:GetObject`**  
+- ✅ Deploy 100% automatizado via **Infrastructure as Code (IaC)**
 
-✅ Uso do Object Ownership = BucketOwnerEnforced
-✅ Sem ACLs públicas (compatível com o novo padrão AWS)
-✅ Política de acesso mínima necessária (s3:GetObject)
-✅ Deploy 100% automatizado via Infrastructure as Code (IaC)
+---
 
-🧩 Tecnologias Utilizadas
-Categoria	Serviço / Ferramenta
-Infraestrutura como Código	AWS CloudFormation
-Armazenamento	Amazon S3
-Distribuição de Conteúdo	Amazon CloudFront
-Linguagem	YAML, HTML
-Hospedagem	AWS
-🧠 Aprendizados Principais
+## 🧩 Tecnologias Utilizadas
+| Categoria                   | Serviço / Ferramenta   |
+|----------------------------|------------------------|
+| Infraestrutura como Código | AWS CloudFormation     |
+| Armazenamento              | Amazon S3              |
+| Distribuição de Conteúdo   | Amazon CloudFront      |
+| Linguagem                  | YAML, HTML             |
+| Hospedagem                 | AWS                    |
 
-Criação de infraestrutura automatizada com CloudFormation
+---
 
-Configuração segura e moderna de buckets S3
-
-Entrega global via CloudFront CDN
-
-Melhores práticas de IaC (Infrastructure as Code)
-
-Documentação técnica e uso do GitHub como portfólio
+## 🧠 Aprendizados Principais
+- Criação de **infraestrutura automatizada** com CloudFormation  
+- Configuração **segura e moderna** de buckets S3  
+- Entrega global via **CloudFront CDN**  
+- Melhores práticas de **IaC (Infrastructure as Code)**  
+- Documentação técnica e uso do **GitHub como portfólio**
